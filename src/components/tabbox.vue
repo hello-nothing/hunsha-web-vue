@@ -1,7 +1,7 @@
 <template>
   <div class="tab-container">
     <div class="tab-content app-box">
-      <div class="tab-title">毕设设计——婚纱</div>
+      <!-- <div class="tab-title">毕设设计——婚纱</div> -->
       <div class="app-button" @click="clickAppTab">
         <div class="line"></div>
         <div class="line"></div>
@@ -99,6 +99,7 @@ export default {
   },
   methods: {
     tabSelect(item, index) {
+      this.selectIndex = index;
       this.$router.push(item.url);
     },
     clickAppTab() {
@@ -156,7 +157,7 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #850e59;
+      background-color: #5d9296;
       content: "";
     }
     &::after {
@@ -177,7 +178,7 @@ export default {
         height: 0;
         left: 50%;
         top: 50%;
-        background-color: #850e59;
+        background-color: #5d9296;
       }
     }
   }
@@ -197,7 +198,7 @@ export default {
           transform: translateX(-50%);
           width: 7px;
           height: 8px;
-          background-color: #850e59;
+          background-color: #5d9296;
           content: "";
           border-radius: 50px;
           opacity: 0;
@@ -209,7 +210,7 @@ export default {
         width: 7px;
         height: 8px;
         margin-right: -10px;
-        background-color: #850e59;
+        background-color: #5d9296;
         content: "";
         border-radius: 50px;
         transform: translateY(0px);
@@ -222,7 +223,7 @@ export default {
         width: 7px;
         height: 8px;
         margin-left: -10px;
-        background-color: #850e59;
+        background-color: #5d9296;
         content: "";
         border-radius: 50px;
         transform: translateY(0px);
@@ -230,7 +231,7 @@ export default {
         opacity: 0;
       }
       &:hover {
-        color: #850e59;
+        color: #5d9296;
         &::after {
           right: 40%;
           opacity: 1;
@@ -251,7 +252,7 @@ export default {
       }
     }
     .tabActive {
-      color: #850e59;
+      color: #5d9296;
       &::after {
         right: 40%;
         opacity: 1;
@@ -280,7 +281,7 @@ export default {
     line-height: 50px;
     &:hover {
       color: #ffffff;
-      background: #850e59;
+      background: #5d9296;
     }
   }
   .app-button {
@@ -299,7 +300,7 @@ export default {
         background-color: #ffffff;
       }
       color: #ffffff;
-      background-color: #850e59;
+      background-color: #5d9296;
     }
     .line {
       width: 22px;

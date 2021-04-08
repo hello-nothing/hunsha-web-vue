@@ -70,4 +70,8 @@ body {
 p {
   margin: 0;
 }
+.page-container {
+  width: 100%;
+  padding-top: 106px;
+}
 </style>

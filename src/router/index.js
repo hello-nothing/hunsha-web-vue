@@ -10,6 +10,7 @@ import ClothesList from "@/views/clothesList";
 import ClientImg from "@/views/clientImg";
 import AboutUs from "@/views/aboutUs";
 import ContactUs from "@/views/contactUs";
+import ZuoPinDetail from "@/views/zuoPin";
 Vue.use(Router);
 
 const router = new Router({
@@ -84,6 +85,15 @@ const router = new Router({
       component: ContactUs,
       meta: {
         title: "联系我们",
+        noNeedLogin: true
+      }
+    },
+    {
+      path: "/zuoPinDetail",
+      name: "zuoPinDetail",
+      component: ZuoPinDetail,
+      meta: {
+        title: "作品详情",
         noNeedLogin: true
       }
     },
