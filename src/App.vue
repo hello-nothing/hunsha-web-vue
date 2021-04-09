@@ -2,6 +2,7 @@
   <div id="app">
     <tab-box>
       <router-view :key="key" />
+      <footer-box></footer-box>
     </tab-box>
   </div>
 </template>
@@ -16,11 +17,13 @@ import {
 } from "./api/index";
 import router from "./router";
 import tabBox from "@/components/tabbox";
+import footerBox from "@/components/footerBox";
 
 export default {
   name: "App",
   components: {
-    tabBox
+    tabBox,
+    footerBox
   },
   computed: {
     key() {
@@ -72,6 +75,7 @@ p {
 }
 .page-container {
   width: 100%;
+  height: calc(100vh - 328px);
   padding-top: 106px;
 }
 </style>
