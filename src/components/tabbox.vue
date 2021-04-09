@@ -37,33 +37,23 @@ export default {
           url: "/"
         },
         {
-          name: "最新系列",
+          name: "优秀作品",
           key: 1,
-          url: "/newList"
-        },
-        {
-          name: "热门系列",
-          key: 2,
           url: "/hotList"
         },
         {
-          name: "礼服展示",
+          name: "优秀摄影师",
+          key: 2,
+          url: "/peopleList"
+        },
+        {
+          name: "优惠活动",
           key: 3,
-          url: "/clothesList"
-        },
-        {
-          name: "真实客照",
-          key: 4,
-          url: "/clientImg"
-        },
-        {
-          name: "关于我们",
-          key: 5,
-          url: "/aboutUs"
+          url: "/activityList"
         },
         {
           name: "联系我们",
-          key: 5,
+          key: 4,
           url: "/contactUs"
         }
       ],
@@ -77,23 +67,17 @@ export default {
       case "/":
         this.selectIndex = 0;
         break;
-      case "newList":
+      case "hotList":
         this.selectIndex = 1;
         break;
-      case "hotList":
+      case "peopleList":
         this.selectIndex = 2;
         break;
       case "clothesList":
         this.selectIndex = 3;
         break;
-      case "clientImg":
-        this.selectIndex = 4;
-        break;
-      case "aboutUs":
-        this.selectIndex = 5;
-        break;
       case "contactUs":
-        this.selectIndex = 6;
+        this.selectIndex = 4;
         break;
     }
   },

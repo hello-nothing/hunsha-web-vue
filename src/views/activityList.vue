@@ -1,9 +1,10 @@
 <template>
-  <div class="page-container">最新系列</div>
+  <!-- 优惠活动 -->
+  <div class="page-container">优惠活动</div>
 </template>
 <script>
 export default {
-  name: "newList"
+  name: "activityList"
 };
 </script>
 <style lang="scss" scoped></style>
