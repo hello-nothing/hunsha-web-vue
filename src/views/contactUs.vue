@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container contact-content">
+  <div class="page-container wrapper">
     <div class="phone-text first-text">联系方式：15037268535</div>
     <div class="phone-text">联系地址：河南省安阳市安阳工学院</div>
     <div class="code-text">合作微信：</div>
@@ -21,10 +21,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.contact-content {
-  width: 60%;
-  margin: 0 auto;
-}
+
 .first-text {
   padding-top: 30px;
 }

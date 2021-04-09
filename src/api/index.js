@@ -12,7 +12,6 @@ let imageUrl =
     : "http://192.168.0.189:9010";
 
 export let imgUrl = imageUrl;
-export const upload_url = "http://192.168.0.189:9010/public/upload";
 export let apiCollection = Vue.axios.create({
   method: "GET",
   baseURL: baseurl
@@ -29,20 +28,10 @@ export let apiFormSubmit = Vue.axios.create({
     "Content-Type": "application/x-www-form-urlencoded"
   }
 });
-export let apiPut = Vue.axios.create({
-  method: "PUT",
-  baseURL: baseurl
-});
-export let apiDelete = Vue.axios.create({
-  method: "DELETE",
-  baseURL: baseurl
-});
 const axiosInstace = [
   apiCollection,
   apiResource,
   apiFormSubmit,
-  apiDelete,
-  apiPut
 ];
 axiosInstace.forEach(item => {
   item.defaults.withCredentials = true;

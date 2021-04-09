@@ -12,8 +12,6 @@ import {
   apiCollection,
   apiResource,
   apiFormSubmit,
-  apiDelete,
-  apiPut
 } from "./api/index";
 import router from "./router";
 import tabBox from "@/components/tabbox";
@@ -46,7 +44,7 @@ export default {
       sessionStorage.setItem("store", JSON.stringify(this.$store.state));
     });
     const loginToken = localStorage.getItem("x-token");
-    const arr = [apiCollection, apiResource, apiFormSubmit, apiDelete, apiPut];
+    const arr = [apiCollection, apiResource, apiFormSubmit];
     if (loginToken) {
       arr.forEach(item => {
         item.defaults.headers["x-token"] = loginToken;
@@ -77,5 +75,9 @@ p {
   width: 100%;
   height: calc(100vh - 328px);
   padding-top: 106px;
+}
+.wrapper {
+  width: 60%;
+  margin: 0 auto;
 }
 </style>

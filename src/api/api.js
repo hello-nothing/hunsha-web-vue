@@ -2,16 +2,45 @@ import {
   apiCollection,
   apiResource,
   apiFormSubmit,
-  apiDelete,
-  apiPut
 } from "./index";
 export default {
-  login: opts => {
-    return apiResource({ url: "/user/login/v1", data: opts });
+  // 获取摄影师人员
+  getCameraPeople: opts => {
+    return apiCollection({ url: "/user/querySheYingShi", params: { ...opts } });
   },
-  // 关于我门信息管理模块
-  getAboutInfo: opts => {
-    return apiCollection({ url: "/back/about", params: { ...opts } });
+  // 获取优秀摄影师
+  getGoodPhotographer: opts => {
+    return apiCollection({
+      url: "/user/queryGoodPhotographer",
+      params: { ...opts }
+    });
   },
-
+  // 获取作品
+  getzuopinList: opts => {
+    return apiCollection({
+      url: "/zuopin/queryZuoPinByPage",
+      params: { ...opts }
+    });
+  },
+  // 获取优秀作品
+  getGoodZuopinList: opts => {
+    return apiCollection({
+      url: "/shoucang/queryYouXiuZuoPin",
+      params: { ...opts }
+    });
+  },
+  // 查看详情
+  getDetail: opts => {
+    return apiCollection({
+      url: "/zuopin/details",
+      params: { ...opts }
+    });
+  },
+  // 预约
+  order: opts => {
+    return apiResource({
+      url: "/yuyue/yuyue",
+      params: { ...opts }
+    });
+  },
 };
