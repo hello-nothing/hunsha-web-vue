@@ -5,7 +5,8 @@ import router from "../router";
 axios.defaults.withCredentials = true;
 Vue.use(VueAxios, axios);
 
-let baseurl = process.env.NODE_ENV === "production" ? "" : "";
+let baseurl =   process.env.NODE_ENV === "production" ? "" : "http://38i6744t82.wicp.vip";
+
 let imageUrl =
   process.env.NODE_ENV === "production"
     ? "http://192.168.0.189:9010"

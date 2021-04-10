@@ -4,7 +4,7 @@
       <el-carousel-item v-for="(item, index) in newImgList" :key="index">
         <div
           class="banner-img"
-          :style="{ backgroundImage: 'url(' + item + ')' }"
+          :style="{ backgroundImage: 'url(' + item.picid + ')' }"
           @click="goDetail(item)"
         ></div>
       </el-carousel-item>
@@ -15,7 +15,7 @@
         class="best-list"
         v-for="(item, index) in bestList"
         :key="index"
-        :style="{ backgroundImage: 'url(' + item + ')' }"
+        :style="{ backgroundImage: 'url(' + item.picid + ')' }"
         @click="goDetail(item)"
       ></div>
     </div>
@@ -25,34 +25,69 @@
         class="best-list"
         v-for="(item, index) in peopleList"
         :key="index"
-        :style="{ backgroundImage: 'url(' + item + ')' }"
+        :style="{ backgroundImage: 'url(' + item.sheYingShiPic + ')' }"
       ></div>
     </div>
   </div>
 </template>
 <script>
 import api from "../api/api";
-import imgOne from "../assets/banner1.jpg";
-import best1 from "../assets/imgone.png";
-import best2 from "../assets/imgtwo.png";
-import best3 from "../assets/imgthree.png";
-import best4 from "../assets/d4.png";
 import des1 from "../assets/des1.jpg";
 import des2 from "../assets/des2.jpg";
 import des3 from "../assets/des3.jpg";
 export default {
   data() {
     return {
-      newImgList: [imgOne, imgOne, imgOne],
-      bestList: [best1, best2, best3, best4],
-      peopleList: [des1, des2, des3]
+      newImgList: [],
+      bestList: [],
+      peopleList: []
     };
   },
 
-  mounted() {},
+  mounted() {
+    this.getBanner();
+    this.getGoodZuopinList();
+    this.getGoodPhotographer();
+  },
   methods: {
+    // 获取优秀摄影师
+    getGoodPhotographer() {
+      api.getGoodPhotographer().then(res => {
+        console.log(res);
+        const result = res.data;
+        this.peopleList.push(result[0]);
+        this.peopleList.push(result[1]);
+        this.peopleList.push(result[2]);
+        this.peopleList.push(result[3]);
+      });
+    },
+    // 获取优秀作品
+    getGoodZuopinList() {
+      api.getGoodZuopinList().then(res => {
+        const result = res.data;
+        if (result.flag) {
+          this.bestList.push(result.object[0]);
+          this.bestList.push(result.object[1]);
+          this.bestList.push(result.object[2]);
+          this.bestList.push(result.object[3]);
+        }
+      });
+    },
+    // 获取banner
+    getBanner() {
+      api.getBanner().then(res => {
+        const result = res.data;
+        if (result.flag) {
+          this.newImgList = result.object;
+        }
+      });
+    },
+    //详情页面跳转
     goDetail(item) {
-      this.$router.push({ path: "/zuoPinDetail" });
+      this.$router.push({
+        path: "/zuoPinDetail",
+        query: { value: JSON.stringify(item) }
+      });
     }
   }
 };
@@ -83,7 +118,7 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto 20px;
   }
   .best-list {
     width: 24%;
@@ -92,6 +127,23 @@ export default {
     background-position: center;
     background-size: cover;
     cursor: pointer;
+  }
+}
+.button-list {
+  width: 100px;
+  margin: 0 auto;
+  line-height: 40px;
+  color: #43a0a5;
+  text-align: center;
+  border: 1px solid #43a0a5;
+  border-radius: 4px;
+  cursor: pointer;
+  &:first-child {
+    margin-right: 30px;
+  }
+  &:hover {
+    color: #ffffff;
+    background-color: #43a0a5;
   }
 }
 </style>

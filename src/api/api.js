@@ -1,8 +1,4 @@
-import {
-  apiCollection,
-  apiResource,
-  apiFormSubmit,
-} from "./index";
+import { apiCollection, apiResource, apiFormSubmit } from "./index";
 export default {
   // 获取摄影师人员
   getCameraPeople: opts => {
@@ -40,6 +36,20 @@ export default {
   order: opts => {
     return apiResource({
       url: "/yuyue/yuyue",
+      data: opts
+    });
+  },
+  // 获取banner图
+  getBanner: opts => {
+    return apiCollection({
+      url: "/zuopin/querybanner",
+      params: { ...opts }
+    });
+  },
+  // 获取活动作品
+  getHuodong: opts => {
+    return apiCollection({
+      url: "/huodong/queryZuoPinList",
       params: { ...opts }
     });
   },

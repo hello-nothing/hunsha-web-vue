@@ -1,7 +1,7 @@
 <template>
   <div class="tab-container">
     <div class="tab-content app-box">
-      <!-- <div class="tab-title">毕设设计——婚纱</div> -->
+      <div class="tab-title">毕设设计——婚纱</div>
       <div class="app-button" @click="clickAppTab">
         <div class="line"></div>
         <div class="line"></div>
@@ -58,11 +58,19 @@ export default {
         }
       ],
       selectIndex: 0,
-      appTab: false
+      appTab: false,
+      selectName: ""
     };
+  },
+  watch: {
+    selectName: function(newVal) {
+      console.log(newVal);
+    }
   },
   created() {
     const name = this.$route.name;
+    console.log(name);
+    this.selectName = name;
     switch (name) {
       case "/":
         this.selectIndex = 0;

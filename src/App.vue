@@ -73,7 +73,7 @@ p {
 }
 .page-container {
   width: 100%;
-  height: calc(100vh - 328px);
+  min-height: calc(100vh - 328px);
   padding-top: 106px;
 }
 .wrapper {
