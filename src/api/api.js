@@ -21,7 +21,7 @@ export default {
   // 获取优秀作品
   getGoodZuopinList: opts => {
     return apiCollection({
-      url: "/shoucang/queryYouXiuZuoPin",
+      url: "/zuopin/queryYouXiuZuoPin",
       params: { ...opts }
     });
   },
